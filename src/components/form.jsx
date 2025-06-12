@@ -1,4 +1,6 @@
 
+import './styles/form.css';
+
 function Form() {
   return (
     <>
@@ -39,8 +41,7 @@ function Form() {
                   <label htmlFor="physical">Physical Book</label>
                   <br />
                   <br />
-                  <button className="btn btn-sm btn-primary" type="button">Save</button>
-                  <button className="btn btn-sm btn-primary" type="button">Reset</button>
+                  <Button />
                 </form>
               </div>
             </div>
@@ -100,6 +101,15 @@ function Form() {
       </div>
     </>
   )
+}
+
+function Button() {
+  return (
+    <>
+      <button className="btn btn-sm btn-primary" type="button">Save</button>
+      <button className="btn btn-sm btn-primary" type="button">Reset</button>
+    </>
+  );
 }
 
 export default Form;

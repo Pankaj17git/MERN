@@ -1,0 +1,87 @@
+.container {
+  width: 100%;
+  align-items: center;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.row .col-lg-12 {
+  text-align: center;
+  flex: 0 0 auto;
+  width: 100%;
+  background: skyblue;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #060675;
+
+}
+
+.row .col-lg-4 {
+  flex: 0 0 auto;
+  width: 33.3333%;
+}
+
+.row .col-lg-8 {
+  flex: 0 0 auto;
+  width: 66.6667%;
+  text-align: left;
+}
+
+.col-lg-8 .card {
+  padding-right: 0px !important;
+}
+
+.col-lg-8 .card-body {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-left: 40px;
+}
+
+.col-lg-8 .card-body h2 {
+  margin-top: 0;
+  font-size: 32px;
+  
+}
+
+.card {
+  display: flex;
+  padding: 10px 32px 0 0px !important;
+  flex-direction: column;
+}
+
+.card form {
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+form label {
+  display: inline-block;
+}
+
+form .form-control{
+  width: 92%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.col-lg-8 .table th {
+  padding: 8px;
+}
