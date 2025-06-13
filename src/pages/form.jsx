@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import Header from '../components/header';
 // import './styles/form.css';
 
 const Form = () => {
@@ -54,6 +55,7 @@ const Form = () => {
 
   return (
     <>
+      <Header/>
       <div className="container mt-4">
         <div className="row">
           <div className="col-lg-12">
@@ -191,4 +193,5 @@ function Button() {
 }
 
 export default Form;
+
 

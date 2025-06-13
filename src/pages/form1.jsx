@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import './styles/form1.css'
+import '../components/styles/form1.css'
+import Header from "../components/header";
 
 
 
@@ -37,6 +38,7 @@ function UserForm() {
 
   return (
     <>
+      <Header/>
       <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
 
