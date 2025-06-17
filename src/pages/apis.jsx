@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from "../components/header";
 
+
 function Apis() {
   // const [count, setcount] = useState(0);
   const [data, setData] = useState({
@@ -57,7 +58,7 @@ function Apis() {
 
   return (
     <>
-      <Header />
+      <Header/>
       <div className="container">
         <form onSubmit={handleSubmit} style={{ maxWidth: "400px", margin: "auto" }} className="container mt-4 border border-1">
           <div className="mb-4">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Form, Button, Card, Alert, Navbar, Nav } from "react-bootstrap";
+import Header from "../components/header";
 
 export default function Chat() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -22,14 +23,7 @@ export default function Chat() {
     <>
       <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React Bootstrap App</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#form">Contact</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+          <Header/>
         </Container>
       </Navbar>
 

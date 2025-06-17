@@ -108,7 +108,7 @@ const Form = () => {
                   required />
                   <br />
                   <br />
-                  <label style={{ marginBottom: '5px', fontWeight: 600 }}>Format</label><br />
+                  <label style={{ marginBottom: '5px', fontWeight: "600" }}>Format</label><br />
                   <input type="radio" id="ebook" className="inputBookFormat" name="Format" value="eBook" 
                     onChange={(e) => setBooks({ ...books, format: e.target.value })}
                     checked={books.format === 'eBook'}

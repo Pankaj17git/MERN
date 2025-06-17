@@ -4,6 +4,7 @@ import Apis from "../pages/apis.jsx";
 import App from "../App";
 import Form from "../pages/form.jsx";
 import Practice from "../pages/practice.jsx";
+import Chat from "../pages/chatPage.jsx";
 function Path() {
   return (
     <BrowserRouter>
@@ -11,9 +12,9 @@ function Path() {
         <Route path="/" element={<UserForm/>} />
         <Route path="/form" element={<Apis/>} />
         <Route path="/apis" element={<App/>} />
+        <Route path="/Chat" element={<Chat/>} />
         <Route path="/bookshelf" element={<Form/>} />
         <Route path="/practice" element={<Practice/>} />
-        <Route path="/form1" element={<h1>Form 1 Page</h1>} />
       </Routes>
     </BrowserRouter>
   );
