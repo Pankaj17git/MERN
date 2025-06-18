@@ -4,19 +4,25 @@ import Apis from "../pages/apis.jsx";
 import App from "../App";
 import Form from "../pages/form.jsx";
 import Practice from "../pages/practice.jsx";
+import { useState } from "react";
 import Chat from "../pages/chatPage.jsx";
+import UserContext from "../context/practiceContext.jsx";
 function Path() {
+  const [name] = useState('Pankaj');
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<UserForm/>} />
-        <Route path="/form" element={<Apis/>} />
-        <Route path="/apis" element={<App/>} />
-        <Route path="/Chat" element={<Chat/>} />
-        <Route path="/bookshelf" element={<Form/>} />
-        <Route path="/practice" element={<Practice/>} />
-      </Routes>
-    </BrowserRouter>
+    <UserContext.Provider value={name}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UserForm/>} />
+          <Route path="/form" element={<Apis/>} />
+          <Route path="/apis" element={<App/>} />
+          <Route path="/Chat" element={<Chat/>} />
+          <Route path="/bookshelf" element={<Form/>} />
+          <Route path="/practice" element={<Practice/>} />
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
+
   );
 }
 

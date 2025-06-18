@@ -1,5 +1,6 @@
 import Header from '../components/header';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import  UserContext  from '../context/practiceContext';
 
 // class Practice extends React.Component {
 //   constructor(props) {
@@ -95,6 +96,8 @@ const Practice = () => {
       }
    };
  
+   const name = useContext(UserContext)
+
    return (
      <>
        <h8k-navbar header="Item List Manager"></h8k-navbar>
@@ -117,6 +120,9 @@ const Practice = () => {
              </li>
            ))}
          </ul>
+       </div>
+       <div>
+        <h1>My name is {name}</h1>
        </div>
      </>
    );
