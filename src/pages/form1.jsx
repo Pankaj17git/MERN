@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import '../components/styles/form1.css'
 import Header from "../components/header";
-import DisplayName from "./DispalyName";
+import MyComponent from "../components/Name";
+// import DisplayName from "./DispalyName";
 
 
 
@@ -178,7 +179,7 @@ function UserForm() {
 
       <hr/>
 
-      <DisplayName/>
+      <MyComponent/>
     </>
   )
 }

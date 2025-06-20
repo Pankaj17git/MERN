@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext , useContext} from "react";
 
 const UserContext = createContext();
 
@@ -10,4 +10,6 @@ const Name = ({children}) => {
     </UserContext>
   )
 }
-export {UserContext, Name};
+ 
+const useNameContext = () => useContext(UserContext);
+export {UserContext, Name, useNameContext};

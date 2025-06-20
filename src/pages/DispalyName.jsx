@@ -1,15 +1,15 @@
-import MyComponent from "../components/Name"
-import { Name } from "../context/practiceContext"
+// import MyComponent from "../components/Name"
+// import { Name } from "../context/practiceContext"
 
-const DisplayName = ()=> {
+// const DisplayName = ()=> {
 
-  return (
-    <>
-      <Name>    { /*THIS is your Provider!*/ }
-        <MyComponent/>  { /*THIS uses `useContext`*/ }
-      </Name>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <Name>    { /*THIS is your Provider!*/ }
+//         <MyComponent/>  { /*THIS uses `useContext`*/ }
+//       </Name>
+//     </>
+//   )
+// }
 
-export default DisplayName
+// export default DisplayName

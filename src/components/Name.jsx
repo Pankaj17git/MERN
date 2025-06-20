@@ -1,8 +1,7 @@
-import { UserContext} from "../context/practiceContext";
-import { useContext } from "react";
+import { useNameContext} from "../context/practiceContext";
 
 const MyComponent = () => {
-  const name = useContext(UserContext);
+  const name = useNameContext()
   console.log(name);
   
   return <h1>Hello, {name}</h1>;

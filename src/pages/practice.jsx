@@ -1,12 +1,9 @@
 import Header from '../components/header';
 import { useState, useEffect } from "react";
-// import  {UserContext}  from '../context/practiceContext';
 import Section from '../components/Section';
 import Heading from '../components/Heading';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Name } from '../context/practiceContext';
 import MyComponent from '../components/Name';
-import DisplayName from './DispalyName';
 
 
 // class Practice extends React.Component {
@@ -129,8 +126,9 @@ const Practice = () => {
         </ul>
       </div>
       <div>
-      <DisplayName/>
-     
+        <section>
+          <MyComponent/>    
+        </section>
       </div>
 
       <h1>My favorite color is {color}!</h1>
