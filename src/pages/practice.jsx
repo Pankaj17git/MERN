@@ -1,6 +1,13 @@
 import Header from '../components/header';
-import { useState, useEffect, useContext } from "react";
-import  UserContext  from '../context/practiceContext';
+import { useState, useEffect } from "react";
+// import  {UserContext}  from '../context/practiceContext';
+import Section from '../components/Section';
+import Heading from '../components/Heading';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Name } from '../context/practiceContext';
+import MyComponent from '../components/Name';
+import DisplayName from './DispalyName';
+
 
 // class Practice extends React.Component {
 //   constructor(props) {
@@ -81,51 +88,80 @@ const HandleApi = () => {
 };
 
 const Practice = () => {
-   const [items, setItems] = useState([]);
-   const [input, setInput] = useState("");
+  const [items, setItems] = useState([]);
+  const [input, setInput] = useState("");
+  const [color, setColor] = useState("red");
 
-   useEffect(() => {
-      HandleApi();
-    }, []);
- 
-   const handleAddItem = () => {
-     // TODO: Add logic to add input to items list
-      if (input.trim() !== "") {
-        setItems([...items, input]);  // Add the new item
-        setInput("");                 // Clear the input field
-      }
-   };
- 
-   const name = useContext(UserContext)
+  useEffect(() => {
+    HandleApi();
+  }, []);
 
-   return (
-     <>
-       <h8k-navbar header="Item List Manager"></h8k-navbar>
-       <div className="App">
-         <h3>Item List</h3>
-         <input
-           type="text"
-           value={input}
-           onChange={(e) => setInput(e.target.value)}
-           placeholder="Enter item"
-           data-testid="input-field"
-         />
-         <button onClick={handleAddItem} data-testid="add-button">
-           Add Item
-         </button>
-         <ul data-testid="item-list">
-           {items.map((item, index) => (
-             <li key={index} data-testid="list-item">
-               {item}
-             </li>
-           ))}
-         </ul>
-       </div>
-       <div>
-        <h1>My name is {name}</h1>
-       </div>
-     </>
-   );
+  const handleAddItem = () => {
+    // TODO: Add logic to add input to items list
+    if (input.trim() !== "") {
+      setItems([...items, input]);  // Add the new item
+      setInput("");                 // Clear the input field
+    }
+  };
+
+
+  return (
+    <>
+      <h8k-navbar header="Item List Manager"></h8k-navbar>
+      <div className="App">
+        <h3>Item List</h3>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter item"
+          data-testid="input-field"
+        />
+        <button onClick={handleAddItem} data-testid="add-button">
+          Add Item
+        </button>
+        <ul data-testid="item-list">
+          {items.map((item, index) => (
+            <li key={index} data-testid="list-item">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+      <DisplayName/>
+     
+      </div>
+
+      <h1>My favorite color is {color}!</h1>
+    <button
+      type="button"
+      onClick={() => setColor("blue")}
+    >Blue</button>
+
+
+    <hr/>
+
+     <Section level={1}>
+      <Heading>Title</Heading>
+      <Section level={2}>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Section level={3}>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Section level={6}>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+          </Section>
+        </Section>
+      </Section>
+    </Section>
+    </>
+  );
 }
 
 export default Practice;

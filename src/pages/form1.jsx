@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../components/styles/form1.css'
 import Header from "../components/header";
+import DisplayName from "./DispalyName";
 
 
 
@@ -174,6 +175,10 @@ function UserForm() {
 
         </form>
       </div>
+
+      <hr/>
+
+      <DisplayName/>
     </>
   )
 }

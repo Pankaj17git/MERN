@@ -1,5 +1,13 @@
 import { createContext } from "react";
 
- const UserContext = createContext();
+const UserContext = createContext();
 
- export default UserContext;
+const Name = ({children}) => {
+  const name = 'pankaj';
+  return (
+    <UserContext value={name}>
+      {children}
+    </UserContext>
+  )
+}
+export {UserContext, Name};
