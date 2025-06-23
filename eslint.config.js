@@ -21,6 +21,9 @@ export default [
       'react-refresh': reactRefresh,
     },
     rules: {
+
+      'no-debugger': 'off',
+
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],

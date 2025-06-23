@@ -1,5 +1,5 @@
 import Header from '../components/header';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Section from '../components/Section';
 import Heading from '../components/Heading';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,6 +61,7 @@ const Cars = (props) => {
 
 
 const HandleApi = () => {
+  
   fetch('https://jsonplaceholder.typicode.com/todos/1', {
     method: 'DELETE',
     body: JSON.stringify({
@@ -88,6 +89,32 @@ const Practice = () => {
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
   const [color, setColor] = useState("red");
+  const [count, setCount] = useState(0);
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+
+  const prevCountRef = useRef();
+
+  useEffect(() => {
+    prevCountRef.current = count;
+  }, [count]);
+
+
+  const heavyCalculation = (num) => {
+    console.log("Heavy calculation running...");
+    let total = 0;
+    for (let i = 0; i < 100000000; i++) {
+      total += i;
+    }
+    return total + num;
+  };
+
+  // Without useMemo: this runs on *every render*, even if only `b` changes
+  // const result = heavyCalculation(a);
+
+  // With useMemo: only runs when `a` changes
+  const result = useMemo(() => heavyCalculation(a), [a]);
 
   useEffect(() => {
     HandleApi();
@@ -104,6 +131,14 @@ const Practice = () => {
 
   return (
     <>
+      <div style={{margin: '10px'}}>
+        <p>Current: {count}</p>
+        <p>Previous: {prevCountRef.current}</p>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+      </div>
+      <hr />
+      <hr />
+
       <h8k-navbar header="Item List Manager"></h8k-navbar>
       <div className="App">
         <h3>Item List</h3>
@@ -125,11 +160,16 @@ const Practice = () => {
           ))}
         </ul>
       </div>
-      <div>
+      <hr />
+      <hr />
+
+      <div>  {/*for use context hook */}
         <section>
           <MyComponent/>    
         </section>
       </div>
+      <hr />
+      <hr />
 
       <h1>My favorite color is {color}!</h1>
     <button
@@ -137,10 +177,10 @@ const Practice = () => {
       onClick={() => setColor("blue")}
     >Blue</button>
 
-
+    <hr/>
     <hr/>
 
-     <Section level={1}>
+     <Section level={1}> {/*for use context hook */}
       <Heading>Title</Heading>
       <Section level={2}>
         <Heading>Heading</Heading>
@@ -158,6 +198,15 @@ const Practice = () => {
         </Section>
       </Section>
     </Section>
+    <hr />
+    <hr />
+    
+    <div>
+      <p>Result A: {result}</p>
+      <button onClick={() => setA(a + 1)}>Update A</button>
+      <button onClick={() => setB(b + 1)}>Update B</button>
+    </div>
+
     </>
   );
 }
