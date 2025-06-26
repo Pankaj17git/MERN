@@ -1,5 +1,5 @@
 import Header from '../components/header';
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useReducer, useCallback } from "react";
 import Section from '../components/Section';
 import Heading from '../components/Heading';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -85,6 +85,28 @@ const HandleApi = () => {
   });
 };
 
+//useReducer
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+//useCallBack
+
+function Child({ onClick }) {
+  console.log('Child rendered');
+  return <button onClick={onClick}>Click Me</button>;
+}
+
 const Practice = () => {
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
@@ -92,6 +114,14 @@ const Practice = () => {
   const [count, setCount] = useState(0);
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+
+
+    const handleClick = (() => {
+      console.log('Clicked');
+    }); // 👈 won't change unless dependencies change
 
 
   const prevCountRef = useRef();
@@ -127,6 +157,8 @@ const Practice = () => {
       setInput("");                 // Clear the input field
     }
   };
+
+
 
 
   return (
@@ -207,6 +239,22 @@ const Practice = () => {
       <button onClick={() => setB(b + 1)}>Update B</button>
     </div>
 
+    <hr />
+    <hr />
+
+    {/* useReducer */}
+    <h2>{state.count}</h2>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+
+    <hr />
+    <hr />
+    {/* useCallBack */}
+    <div>
+      <Child onClick={handleClick} />
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Update Count</button>
+    </div>
     </>
   );
 }
