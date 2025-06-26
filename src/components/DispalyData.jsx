@@ -1,30 +1,20 @@
-const DisplayData = ({ bookList, isRead, removeData }) => {
+const DisplayData = ({ bookList, isRead, removeData, onEdit,toggleReadStatus }) => {
 
   return (
     <>
       {
-        bookList.filter(book => book.isComplete === (isRead ? 1 : 0)).map((value, i) => (
-          <tr key={value.id}>
+        bookList.filter(book => book.isComplete === (isRead ? 1 : 0)).map((book, i) => (
+          <tr key={book.id}>
             <td>{i + 1}</td>
-            <td>{value.title}</td>
-            <td>{value.author}</td>
-            <td>{value.year}</td>
-            <td>{value.isAvailable}</td>
-            <td>{value.format}</td>
+            <td>{book.title}</td>
+            <td>{book.author}</td>
+            <td>{book.year}</td>
+            <td>{book.isAvailable}</td>
+            <td>{book.format}</td>
             <td>
               <button
                 className="btn btn-sm btn-warning"
-              // onClick={() => toggleReadStatus(
-              //   value.id,
-              //   value.title,
-              //   value.author,
-              //   value.year,
-              //   value.isAvailable,
-              //   value.format,
-              //   value.genre,
-              //   value.image,
-              //   1
-              // )}
+                onClick={() => toggleReadStatus(book)}
               >
                 <i className="fa fa-check"></i>
               </button>
@@ -32,7 +22,7 @@ const DisplayData = ({ bookList, isRead, removeData }) => {
             <td>
               <button
                 className="btn btn-sm btn-success"
-              // onClick={() => findBook(value.id, 'listItem4')}
+                onClick={() => onEdit(book) }
               >
                 <i className="fa fa-edit"></i>
               </button>
@@ -40,7 +30,7 @@ const DisplayData = ({ bookList, isRead, removeData }) => {
             <td>
               <button
                 className="btn btn-sm btn-danger"
-                onClick={() => removeData(value.id, isRead ? 1 : 0)}
+                onClick={() => removeData(book.id, isRead ? 1 : 0)}
               >
                 <i className="fa fa-trash"></i>
               </button>

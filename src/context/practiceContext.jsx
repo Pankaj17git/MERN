@@ -12,4 +12,5 @@ const Name = ({children}) => {
 }
  
 const useNameContext = () => useContext(UserContext);
+// eslint-disable-next-line react-refresh/only-export-components
 export {UserContext, Name, useNameContext};
