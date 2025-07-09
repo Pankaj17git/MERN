@@ -1,0 +1,61 @@
+{
+  "quizTitle": "General Knowledge Quiz",
+  "description": "Test your general knowledge with these questions.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "options": [
+        "Berlin",
+        "Madrid",
+        "Paris",
+        "Rome"
+      ],
+      "correctAnswer": "Paris"
+    },
+    {
+      "id": 2,
+      "question": "Which planet is known as the Red Planet?",
+      "options": [
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Venus"
+      ],
+      "correctAnswer": "Mars"
+    },
+    {
+      "id": 3,
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "options": [
+        "William Shakespeare",
+        "Leo Tolstoy",
+        "Mark Twain",
+        "Jane Austen"
+      ],
+      "correctAnswer": "William Shakespeare"
+    },
+    {
+      "id": 4,
+      "question": "What is the largest mammal in the world?",
+      "options": [
+        "African Elephant",
+        "Blue Whale",
+        "Giraffe",
+        "Hippopotamus"
+      ],
+      "correctAnswer": "Blue Whale"
+    },
+    {
+      "id": 5,
+      "question": "Which element has the chemical symbol 'O'?",
+      "options": [
+        "Oxygen",
+        "Gold",
+        "Silver",
+        "Hydrogen"
+      ],
+      "correctAnswer": "Oxygen"
+    }
+  ]
+}
