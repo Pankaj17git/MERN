@@ -64,7 +64,7 @@ const LandingPage = () => {
               }}
             >
               <MenuBookIcon color="primary" />
-              <Typography variant="h6" fontWeight="medium">5:00</Typography>
+              <Typography variant="h6" fontWeight="medium">2:50</Typography>
               <Typography variant="body2" color="text.secondary">
                 Minutes
               </Typography>
@@ -98,7 +98,7 @@ const LandingPage = () => {
               }}
             >
               <EmojiEventsIcon color="success" />
-              <Typography variant="h6" fontWeight="medium">8</Typography>
+              <Typography variant="h6" fontWeight="medium">10</Typography>
               <Typography variant="body2" color="text.secondary">
                 Questions
               </Typography>

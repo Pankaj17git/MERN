@@ -56,6 +56,62 @@
         "Hydrogen"
       ],
       "correctAnswer": "Oxygen"
-    }
+    },
+    {
+    "id": 6,
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Transpiration"
+    ],
+    "correctAnswer": "Photosynthesis"
+  },
+  {
+    "id": 7,
+    "question": "Who painted the Mona Lisa?",
+    "options": [
+      "Leonardo da Vinci",
+      "Pablo Picasso",
+      "Vincent van Gogh",
+      "Michelangelo"
+    ],
+    "correctAnswer": "Leonardo da Vinci"
+  },
+  {
+    "id": 8,
+    "question": "Which gas do humans need to breathe in to survive?",
+    "options": [
+      "Carbon Dioxide",
+      "Oxygen",
+      "Nitrogen",
+      "Helium"
+    ],
+    "correctAnswer": "Oxygen"
+  },
+  {
+    "id": 9,
+    "question": "In which continent is the Sahara Desert located?",
+    "options": [
+      "Asia",
+      "Africa",
+      "Australia",
+      "South America"
+    ],
+    "correctAnswer": "Africa"
+  },
+  {
+    "id": 10,
+    "question": "Which instrument has black and white keys?",
+    "options": [
+      "Violin",
+      "Piano",
+      "Drum",
+      "Flute"
+    ],
+    "correctAnswer": "Piano"
+  }
+
   ]
 }
