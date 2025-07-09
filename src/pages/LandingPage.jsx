@@ -124,7 +124,7 @@ const LandingPage = () => {
               <CheckCircleIcon />
             </ListItemIcon>
             <ListItemText
-              primary="You have 5 minutes to complete all questions">
+              primary="You have 2:50 minutes to complete all questions">
             </ListItemText>
           </ListItem>
           <ListItem>
@@ -132,7 +132,7 @@ const LandingPage = () => {
               <CheckCircleIcon />
             </ListItemIcon>
             <ListItemText
-              primary="Once you select an answer, you'll see the explanation">
+              primary="Once you select an answer, you'll see correct answer">
             </ListItemText>
           </ListItem>
           <ListItem>

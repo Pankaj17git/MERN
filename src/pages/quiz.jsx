@@ -10,15 +10,18 @@ import {
   Paper,
 } from "@mui/material";
 import QuizResults from "../components/Result";
+import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
-  const [option, setOption] = useState([])
-  const [quizData, setQuizData] = useState([])
+  const [option, setOption] = useState([]);
+  const [quizData, setQuizData] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(150); 
+  const [timeLeft, setTimeLeft] = useState(150);
   const [quizEnded, setQuizEnded] = useState(false);
   const timerRef = useRef(null);
   const URL = import.meta.env.VITE_BASE_URL;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(URL)
@@ -42,22 +45,20 @@ const Quiz = () => {
   }, [quizEnded]);
 
   const handleNextQuestion = (index, selectedOption) => {
-    // debugger;
     if (selectedOption === quizData[index].correctAnswer) {
       setOption([...option, selectedOption])
-      console.log(option);
     }
+    setSelectedOption(selectedOption);
 
-    if (index === quizData.length - 1) {
-      console.log(option.length / 10 * 100);
-      setQuizEnded(true);
-    }
-
-    if (index < quizData.length) {
-      let updatedInedx = index + 1;
-      setCurrentIndex(updatedInedx);
-      console.log(currentIndex);
-    }
+    // Only move to next question after delay
+    setTimeout(() => {
+      if (index === quizData.length - 1) {
+        setQuizEnded(true);
+      } else {
+        setCurrentIndex((prev) => prev + 1);
+        setSelectedOption(null); // Reset for next question
+      }
+    }, 500);
     return;
   }
 
@@ -100,7 +101,9 @@ const Quiz = () => {
               </Typography>
             ) : quizEnded ? (
               <QuizResults totalQuestions={quizData.length}
-                correctAnswers={option.length} />
+                correctAnswers={option.length} onRestart={() => {
+                  navigate('/');
+                }}/>
             ) : (
               <Grid container spacing={0} justifyContent="center">
                 <Grid item xs={12} md={8} sx={{ width: "100%" }} >
@@ -114,20 +117,43 @@ const Quiz = () => {
                               {quizData[currentIndex].question}
                             </Typography>
                             <Grid container spacing={2} direction="column" alignItems="stretch">
-                              {quizData[currentIndex].options?.map((opt, index) => (
-                                <Grid item key={index} sx={{ width: '100%' }}>
-                                  <Button
-                                    variant="outlined"
-                                    fullWidth
-                                    className=""
-                                    style={{ marginBottom: "8px" }}
-                                    onClick={() => handleNextQuestion(currentIndex, opt)}
-                                    disabled={quizEnded}
-                                  >
-                                    {opt}
-                                  </Button>
-                                </Grid>
-                              ))}
+                              {quizData[currentIndex].options?.map((opt, index) => {
+                                const isCorrect = opt === quizData[currentIndex].correctAnswer;
+                                // const isSelected = selectedOption === opt;
+                                const showAnswer = selectedOption !== null;
+                                let borderColor;
+                                let color;
+                                if (showAnswer) {
+                                  if (isCorrect) {
+                                    borderColor = '#4caf50';
+                                    color = '#4caf50';
+                                  } else{
+                                    borderColor = '#f44336';
+                                    color = '#f44336';
+                                  }
+                                }
+                                return (
+                                  <Grid item key={index} sx={{ width: '100%' }}>
+                                    <Button
+                                      variant="outlined"
+                                      fullWidth
+                                      disabled={selectedOption !== null}
+                                      onClick={() => handleNextQuestion(currentIndex, opt)}
+                                      sx={{
+                                        mb: 1,
+                                        color: `${color} !important`,
+                                        borderColor: `${borderColor} !important`,
+                                        '&:hover': {
+                                          borderColor: `${borderColor} !important`,
+                                          backgroundColor: 'rgba(0,0,0,0.04)',
+                                        },
+                                      }}
+                                    >
+                                      {opt}
+                                    </Button>
+                                  </Grid>
+                                );
+                              })}
                             </Grid>
                           </>
                         )
